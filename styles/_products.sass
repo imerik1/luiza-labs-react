@@ -1,3 +1,5 @@
+@import './_theme.sass'
+
 .list
   display: grid
   justify-content: center
@@ -30,10 +32,10 @@
     transition-duration: 0.5s
     cursor: pointer
     &:hover
-      box-shadow: 0px 0px 28px -12px #000000
+      box-shadow: 0px 0px 28px -12px black
     &__price
       margin-top: 1rem
-      color: #f2e077
+      color: $secondary
     &__remove
       position: absolute
       display: flex
