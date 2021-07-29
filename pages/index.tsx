@@ -1,18 +1,15 @@
 import {
   ChangeEvent,
   useEffect,
-  useMemo,
   useState,
 } from "react";
 
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import Breadcrumbs from "nextjs-breadcrumbs";
 
-import { HeaderComponent } from "../components/HeaderComponent/HeaderComponent";
-import {
-  ProductsComponent,
-} from "../components/ProductsComponent/ProductsComponent";
+import { Breadcrumbs } from "../components/Breadcrumbs/BreadcrumbsComponent";
+import { HeaderComponent } from "../components/Header/HeaderComponent";
+import { ProductsComponent } from "../components/Products/ProductsComponent";
 import { IProducts } from "../types/products";
 
 type Props = {
@@ -29,6 +26,7 @@ export default function Index({ products }: Props) {
       setLocalization(localStorage.getItem("localization"));
     }
   }, []);
+
   const handleInputCep = (e: ChangeEvent<HTMLInputElement>) => {
     // habilita apenas número
     e.target.value = e.target.value
@@ -53,6 +51,7 @@ export default function Index({ products }: Props) {
       );
     }
   };
+
   return (
     <>
       <Head>
@@ -74,23 +73,9 @@ export default function Index({ products }: Props) {
           {useError ? <span>{useError}</span> : <></>}
         </div>
       )}
-      {useMemo(
-        () => (
-          <HeaderComponent title="MegaNets" localization={useLocalization} />
-        ),
-        [useLocalization]
-      )}
-      <Breadcrumbs
-        containerClassName="breadcrumbs"
-        useDefaultStyle
-        rootLabel="Home"
-      />
-      {useMemo(
-        () => (
-          <ProductsComponent products={products} />
-        ),
-        [products]
-      )}
+      <HeaderComponent title="MegaNets" localization={useLocalization} />
+      <Breadcrumbs pages={[{ href: "/", breadcrumb: "Home" }]} />
+      <ProductsComponent products={products} />
     </>
   );
 }
