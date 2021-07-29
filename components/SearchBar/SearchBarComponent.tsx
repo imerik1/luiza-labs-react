@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { FC } from 'react';
+import { FC } from "react";
 
 export const SearchBarComponent: FC = () => {
   return (

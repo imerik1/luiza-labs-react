@@ -2,8 +2,8 @@ import { FC } from "react";
 
 import Link from "next/link";
 
-import { HomeOptionsComponent } from "./HomeOptionsComponent";
-import { SearchBarComponent } from "./SearchBarComponent";
+import { HomeOptionsComponent } from "../HomeOptions/HomeOptionsComponent";
+import { SearchBarComponent } from "../SearchBar/SearchBarComponent";
 
 type Props = {
   title: string;
