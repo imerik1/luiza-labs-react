@@ -1,7 +1,9 @@
-import { FC } from 'react';
+import { FC } from "react";
 
-import { HomeOptionsComponent } from './HomeOptionsComponent';
-import { SearchBarComponent } from './SearchBarComponent';
+import Link from "next/link";
+
+import { HomeOptionsComponent } from "./HomeOptionsComponent";
+import { SearchBarComponent } from "./SearchBarComponent";
 
 type Props = {
   title: string;
@@ -12,7 +14,9 @@ export const HeaderComponent: FC<Props> = ({ title, localization }) => {
   return (
     <header className="header">
       <section className="header__firstColumn">
-        <h1>{title}</h1>
+        <h1>
+          <Link href="/">{title}</Link>
+        </h1>
         <HomeOptionsComponent localization={localization} />
       </section>
       <section className="header__secondColumn">
