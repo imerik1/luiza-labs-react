@@ -1,15 +1,23 @@
 import {
   ChangeEvent,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Breadcrumbs from "nextjs-breadcrumbs";
 
 import { HeaderComponent } from "../components/HeaderComponent";
+import { ProductsComponent } from "../components/ProductsComponent";
+import { IProducts } from "../types/products";
 
-export default function Index() {
+type Props = {
+  products: Array<IProducts>;
+};
+
+export default function Index({ products }: Props) {
   const [useLocalization, setLocalization] = useState<
     string | null | undefined
   >();
@@ -64,13 +72,31 @@ export default function Index() {
           {useError ? <span>{useError}</span> : <></>}
         </div>
       )}
-      <HeaderComponent title="MegaNets" localization={useLocalization} />
+      {useMemo(
+        () => (
+          <HeaderComponent title="MegaNets" localization={useLocalization} />
+        ),
+        [useLocalization]
+      )}
       <Breadcrumbs
         containerClassName="breadcrumbs"
         useDefaultStyle
         rootLabel="Home"
       />
-      <main></main>
+      {useMemo(
+        () => (
+          <ProductsComponent products={products} />
+        ),
+        [products]
+      )}
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(
+    "https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e"
+  );
+  const products: Props = await res.json();
+  return { props: products };
+};
