@@ -22,9 +22,13 @@ a
 .breadcrumbs
   padding: 2rem 6rem
   ol
+    display: flex
+    flex-flow: row wrap
+    gap: 1rem
     > li
       list-style-type: none
-      > a
+      > a, span
+        font-size: 0.8rem
         font-weight: bold
         color: black
 header, main
