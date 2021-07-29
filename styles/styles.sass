@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+  
+*
+  border: 0
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Roboto', sans-serif
+  outline: none
+#__next
+  position: relative
+  display: flex
+  flex-flow: column nowrap
+  width: 100vw
+  max-width: 100vw
+  min-height: 100vh
+a
+  color: white
+  text-decoration: none
+.breadcrumbs
+  padding: 2rem 6rem
+  ol
+    > li
+      list-style-type: none
+      > a
+        font-weight: bold
+        color: black
+header, main
+  padding: 2rem 6rem
+  @media screen and (max-width: 426px)
+    padding: 1rem 1rem
+.choose
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+  gap: 2rem
+  position: absolute
+  left: 0
+  top: 0
+  height: 100vh
+  width: 100vw
+  z-index: 1
+  background-color: #000000f5
+  label
+    font-size: 2rem
+    color: white
+  &__locate
+    width: 100%
+    max-width: 300px
+    padding: 0.8rem 1rem
+
+.header
+  display: flex
+  flex-flow: column wrap
+  color: white 
+  background-color: #5a2d82
+  width: 100%
+  gap: 1rem
+  &__firstColumn
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: center
+    gap: 1rem
+    width: 100%
+    .options
+      display: flex
+      align-items: center
+      justify-content: space-between
+      width: 100%
+      max-width: 600px
+      gap: 1rem
+      > .options__icon // cada div__icon
+        display: flex
+        flex-flow: row nowrap
+        justify-content: center
+        align-items: center
+        height: fit-content 
+        a // Link
+          display: flex
+          flex-flow: row wrap
+          justify-content: center
+          align-items: center
+          text-align: center
+          img // icon
+            margin-right: 5px
+          span
+            @media screen and (max-width: 446px)
+              display: none
+  &__secondColumn
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-end
+    &__searchBar
+      position: relative
+      width: 100%
+      max-width: 600px
+      img
+          position: absolute
+          left: 10px
+          bottom: 32%
+      input[type="text"]
+        padding: 0.8rem 1rem 0.8rem 2.2rem
+        width: 100%
