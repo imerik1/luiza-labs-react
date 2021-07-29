@@ -1,0 +1,52 @@
+.header
+  display: flex
+  flex-flow: column wrap
+  color: white 
+  background-color: #5a2d82
+  gap: 1rem
+  &__firstColumn
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: center
+    gap: 1rem
+    width: 100%
+    .options
+      display: flex
+      align-items: center
+      justify-content: space-between
+      width: 100%
+      max-width: 600px
+      gap: 1rem
+      > .options__icon // cada div__icon
+        display: flex
+        flex-flow: row nowrap
+        justify-content: center
+        align-items: center
+        height: fit-content 
+        a // Link
+          display: flex
+          flex-flow: row wrap
+          justify-content: center
+          align-items: center
+          text-align: center
+          img // icon
+            margin-right: 5px
+          span
+            @media screen and (max-width: 446px)
+              display: none
+  &__secondColumn
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-end
+    &__searchBar
+      position: relative
+      width: 100%
+      max-width: 600px
+      img
+          position: absolute
+          left: 10px
+          bottom: 32%
+      input[type="text"]
+        padding: 0.8rem 1rem 0.8rem 2.2rem
+        width: 100%
