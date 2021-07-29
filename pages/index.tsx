@@ -9,8 +9,10 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Breadcrumbs from "nextjs-breadcrumbs";
 
-import { HeaderComponent } from "../components/HeaderComponent";
-import { ProductsComponent } from "../components/ProductsComponent";
+import { HeaderComponent } from "../components/HeaderComponent/HeaderComponent";
+import {
+  ProductsComponent,
+} from "../components/ProductsComponent/ProductsComponent";
 import { IProducts } from "../types/products";
 
 type Props = {
