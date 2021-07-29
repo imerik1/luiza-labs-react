@@ -80,6 +80,11 @@ header, main {
   color: white;
 }
 
+.choose span {
+  font-size: 1.2rem;
+  color: red;
+}
+
 .choose__locate {
   width: 100%;
   max-width: 300px;
