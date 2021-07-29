@@ -45,7 +45,7 @@ export const ProductsComponent: FC<Props> = ({ products }) => {
                 <div
                   onClick={(e) => handleClickProduct(e, product.sku)}
                   className={`list__item__favorite ${
-                    useFavorites?.indexOf(product.sku, 1) !== -1
+                    useFavorites?.indexOf(product.sku, 0) !== -1
                       ? "enabled"
                       : ""
                   }`}
