@@ -61,16 +61,18 @@ export default function Index({ products }: Props) {
         <></>
       ) : (
         <div className="choose">
-          <label htmlFor="cep">Digite seu CEP</label>
-          <input
-            className="choose__locate"
-            id="cep"
-            type="text"
-            placeholder="Digite seu CEP"
-            maxLength={8}
-            onInput={handleInputCep}
-          />
-          {useError ? <span>{useError}</span> : <></>}
+          <div className="choose__container">
+            <label htmlFor="cep">Digite seu CEP</label>
+            {useError ? <span>{useError}</span> : <></>}
+            <input
+              className="choose__container__locate"
+              id="cep"
+              type="text"
+              placeholder="Digite seu CEP"
+              maxLength={8}
+              onInput={handleInputCep}
+            />
+          </div>
         </div>
       )}
       <HeaderComponent title="MegaNets" localization={useLocalization} />
