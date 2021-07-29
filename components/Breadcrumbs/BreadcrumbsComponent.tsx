@@ -18,7 +18,7 @@ export const Breadcrumbs: FC<Props> = ({ ...pages }) => {
         {pages.pages.map((page: Page, i: number) => {
           return (
             <li key={i}>
-              {i !== 0 ? <span>{">"}</span> : <></>}
+              {i !== 0 ? <span>{">  "}</span> : <></>}
               <Link href={page.href}>
                 <a>{page.breadcrumb}</a>
               </Link>
