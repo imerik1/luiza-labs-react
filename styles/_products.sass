@@ -1,0 +1,67 @@
+.list
+  display: grid
+  justify-content: center
+  align-items: center
+  grid-template-columns: repeat(5, 170px)
+  gap: 2rem
+  @media screen and (max-width: 1341px)
+    grid-template-columns: repeat(4, 170px)
+  @media screen and (max-width: 1100px)
+    grid-template-columns: repeat(3, 170px)
+  @media screen and (max-width: 869px)
+    grid-template-columns: repeat(2, 170px)
+  @media screen and (max-width: 539px)
+    grid-template-columns: repeat(1, 170px)
+  &__item
+    position: relative
+    display: flex
+    flex-flow: column nowrap
+    justify-content: space-between
+    align-items: center
+    text-align: center
+    width: 100%
+    height: 100%
+    max-width: 100%
+    padding: 1rem 1rem 3rem
+    gap: 1rem
+    border: 1px solid black
+    font-size: 1rem
+    transition: box-shadow
+    transition-duration: 0.5s
+    cursor: pointer
+    &:hover
+      box-shadow: 0px 0px 28px -12px #000000
+    &__price
+      margin-top: 1rem
+      color: #f2e077
+    &__remove
+      position: absolute
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 25px
+      height: 25px
+      border-radius: 50%
+      font-weight: bolder
+      font-size: 0.6rem
+      color: white
+      background-color: black
+      z-index: 1
+      top: -10px
+      right: -10px
+      cursor: pointer
+    &__favorite
+      position: absolute
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 25px
+      height: 25px
+      border-radius: 50%
+      background-color: black
+      z-index: 1
+      top: -10px
+      left: -10px
+      cursor: pointer
+      &.enabled
+        filter: brightness(50%) sepia(100) saturate(100) hue-rotate(25deg)
