@@ -13,6 +13,7 @@ export default function Index() {
   const [useLocalization, setLocalization] = useState<
     string | null | undefined
   >();
+  const [useError, setError] = useState<string>();
   useEffect(() => {
     if (localStorage.getItem("localization")) {
       setLocalization(localStorage.getItem("localization"));
@@ -27,11 +28,16 @@ export default function Index() {
       fetch(`https://viacep.com.br/ws/${e.target.value}/json`).then(
         (response) => {
           response.json().then((data) => {
-            setLocalization(`${data.localidade} - ${data.uf}`);
-            localStorage.setItem(
-              "localization",
-              `${data.localidade} - ${data.uf}`
-            );
+            // se a API retornar um endereço
+            if (data.logradouro) {
+              setLocalization(`${data.localidade} - ${data.uf}`);
+              localStorage.setItem(
+                "localization",
+                `${data.localidade} - ${data.uf}`
+              );
+            } else {
+              setError("Digite um CEP válido");
+            }
           });
         }
       );
@@ -55,6 +61,7 @@ export default function Index() {
             maxLength={8}
             onInput={handleInputCep}
           />
+          {useError ? <span>{useError}</span> : <></>}
         </div>
       )}
       <HeaderComponent title="MegaNets" localization={useLocalization} />
