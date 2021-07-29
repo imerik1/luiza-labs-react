@@ -17,14 +17,12 @@ export const Breadcrumbs: FC<Props> = ({ ...pages }) => {
       <ol>
         {pages.pages.map((page: Page, i: number) => {
           return (
-            <>
+            <li key={i}>
               {i !== 0 ? <span>{">"}</span> : <></>}
-              <li key={page.breadcrumb}>
-                <Link href={page.href}>
-                  <a>{page.breadcrumb}</a>
-                </Link>
-              </li>
-            </>
+              <Link href={page.href}>
+                <a>{page.breadcrumb}</a>
+              </Link>
+            </li>
           );
         })}
       </ol>
