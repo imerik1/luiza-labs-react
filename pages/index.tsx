@@ -1,8 +1,4 @@
-import {
-  ChangeEvent,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { GetServerSideProps } from "next";
 import Head from "next/head";
@@ -58,7 +54,11 @@ export default function Index({ products }: Props) {
         <title>Página inicial</title>
       </Head>
       {useLocalization ? (
-        <></>
+        <>
+          <HeaderComponent title="MegaNets" localization={useLocalization} />
+          <Breadcrumbs pages={[{ href: "/", breadcrumb: "Home" }]} />
+          <ProductsComponent products={products} />
+        </>
       ) : (
         <div className="choose">
           <div className="choose__container">
@@ -75,9 +75,6 @@ export default function Index({ products }: Props) {
           </div>
         </div>
       )}
-      <HeaderComponent title="MegaNets" localization={useLocalization} />
-      <Breadcrumbs pages={[{ href: "/", breadcrumb: "Home" }]} />
-      <ProductsComponent products={products} />
     </>
   );
 }
